@@ -1,26 +1,6 @@
-#include<stdio.h> 
-// printf(), fprintf(), stderr, getchar(), perror()
-
-#include<string.h> 
-// strtok(), strcmp()
-
-#include<stdlib.h>
-// malloc(), realloc(), free(), exit(), execvp()
-
-#include<unistd.h>
-// chdir(), fork(), exec(), pid_t
+#include "myshell.h"
 
 /*-------------------------------------------------------*/
-
-void myshell_loop(void);                    //shell主循环函数
-char* myshell_readline(void);               //读入命令函数
-char** myshell_splitline(char *line);       //命令解析函数
-int myshell_execute(char **args);           //执行函数
-int myshell_launch(char **args);            //外部命令执行函数
-
-int myshell_cd(char **args);
-int myshell_help(char **args);
-int myshell_quit(char **args);
 
 char *builtin_str[] = {                     //内部函数名称字符串数组
     "cd",
@@ -32,15 +12,11 @@ int (*builtin_func[])(char **) = {          //内部函数函数指针数组
     &myshell_help,
     &myshell_quit
 };
-int num_builtins(){                         //获取内部函数的数量
-    return sizeof(builtin_str)/sizeof(char *);
-};
-
-
 
 /*-------------------------------------------------------*/
 
 int main(){
+    test();
     myshell_loop();         // 进入主循环
     return 0;
 }
@@ -142,6 +118,10 @@ char** myshell_splitline(char* line){       //解析字符串函数
     // }
     return args;
 }
+
+int num_builtins(){                         //获取内部函数的数量
+    return sizeof(builtin_str)/sizeof(char *);
+};
 
 int myshell_execute(char **args){           //执行函数
     int i;
