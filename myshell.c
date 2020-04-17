@@ -5,12 +5,14 @@
 char *builtin_str[] = {                     //内部函数名称字符串数组
     "cd",
     "help",
-    "quit"
+    "quit",
+    "cls"
 };
 int (*builtin_func[])(char **) = {          //内部函数函数指针数组
     &myshell_cd,
     &myshell_help,
-    &myshell_quit
+    &myshell_quit,
+    &myshell_cls
 };
 
 /*-------------------------------------------------------*/
@@ -173,7 +175,7 @@ int myshell_cd(char **args){
 }
 int myshell_help(char **arg){
     int i;
-    printf("wintermorning's LSH\n");
+    printf("wintermorning's shell\n");
     printf("Type program names and arguments, and hit enter.\n");
     printf("The following are built in:\n");
 
@@ -182,6 +184,11 @@ int myshell_help(char **arg){
     }
 
     printf("Use the man command for information on other programs.\n");
+    return 1;
+}
+int myshell_cls(char **agrs){
+    printf("\033[2J");    //清除屏幕
+    printf("\033[H");    // 光标复位
     return 1;
 }
 int myshell_quit(char **args){

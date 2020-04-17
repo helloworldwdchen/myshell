@@ -39,7 +39,7 @@
 **内部函数目标：**
 
 - [ ] cd
-- [ ] cls
+- [x] cls
 - [ ] dir
 - [ ] environ 列出所有环境变量
 - [ ] echo
@@ -72,3 +72,6 @@
 └── utility.c
 ```
 
+4.17
+
+调整makefile，增加cls的内部函数实现

@@ -23,6 +23,7 @@ int myshell_launch(char **args);            //外部命令执行函数
 int myshell_cd(char **args);
 int myshell_help(char **args);
 int myshell_quit(char **args);
+int myshell_cls(char **args);
 
 int num_builtins();
 
