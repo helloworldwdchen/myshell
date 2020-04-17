@@ -6,13 +6,15 @@ char *builtin_str[] = {                     //内部函数名称字符串数组
     "cd",
     "help",
     "quit",
-    "cls"
+    "cls",
+    "pause"
 };
 int (*builtin_func[])(char **) = {          //内部函数函数指针数组
     &myshell_cd,
     &myshell_help,
     &myshell_quit,
-    &myshell_cls
+    &myshell_cls,
+    &myshell_pause
 };
 
 /*-------------------------------------------------------*/
@@ -186,11 +188,21 @@ int myshell_help(char **arg){
     printf("Use the man command for information on other programs.\n");
     return 1;
 }
+
+int myshell_quit(char **args){
+    return 0;
+}
+
 int myshell_cls(char **agrs){
     printf("\033[2J");    //清除屏幕
     printf("\033[H");    // 光标复位
     return 1;
 }
-int myshell_quit(char **args){
-    return 0;
+
+int myshell_pause(char **args){
+    char c;
+    while(1){
+        c = getchar();
+        if(c == '\n' || c == '\r')break;
+    }
 }

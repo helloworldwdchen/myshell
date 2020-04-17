@@ -24,6 +24,7 @@ int myshell_cd(char **args);
 int myshell_help(char **args);
 int myshell_quit(char **args);
 int myshell_cls(char **args);
+int myshell_pause(char **args);
 
 int num_builtins();
 

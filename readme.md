@@ -44,7 +44,7 @@
 - [ ] environ 列出所有环境变量
 - [ ] echo
 - [x] help
-- [ ] pause 停止shell操作直到按下回车
+- [x] pause 停止shell操作直到按下回车
 - [x] quit
 
 **其他目标：**
@@ -74,4 +74,4 @@
 
 4.17
 
-调整makefile，增加cls的内部函数实现
+调整makefile，增加cls,pause的内部函数实现
